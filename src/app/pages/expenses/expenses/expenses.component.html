@@ -1,0 +1,68 @@
+<ion-content class="budget-screen">
+
+  <!-- Header Section -->
+  <div class="header">
+    <h2>December budget</h2>
+    <ion-icon name="close-sharp" class="check-icon" (click)="navigate('/home')"></ion-icon>
+    <div class="balance-amount">R3,250 <span>Balance</span></div>
+    <ion-progress-bar color="medium" value="0.292"></ion-progress-bar>
+    <div class="spent-text">R949 of R3,250 spent</div>
+  </div>
+
+  <!-- Income Section -->
+  <ion-card class="budget-card">
+    <ion-card-header>
+      <ion-card-title>Income <span class="amount">R29</span></ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="budget-row">
+        <div>
+          <strong>Income</strong>
+          <div class="subtext">R5,000 left</div>
+        </div>
+       <img src="../../../../assets/icons/foward-icon.svg" style="width:25px; height:25px;"
+       (click)="navigate('/expense-details')">
+      </div>
+      <ion-progress-bar color="primary" value="0.0058"></ion-progress-bar>
+      <div class="progress-text">R29 of R5,000</div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Expenses Section -->
+  <ion-card class="budget-card">
+    <ion-card-header>
+      <ion-card-title>Expenses <span class="negative-amount">- R201</span></ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+
+      <!-- Mobile Phone -->
+      <div class="budget-row">
+        <div>
+          <strong>Mobile Phone</strong>
+          <div class="subtext">R96 left</div>
+        </div>
+        <img src="../../../../assets/icons/foward-icon.svg" style="width:25px; height:25px;"
+        (click)="navigate('/expense-details')">
+      </div>
+      <ion-progress-bar color="secondary" value="0.0857"></ion-progress-bar>
+      <div class="progress-text">R9 of R105</div>
+
+      <!-- Business Services -->
+      <div class="budget-row">
+        <div>
+          <strong>Business Services</strong>
+          <div class="subtext">R40 left</div>
+        </div>
+        <img src="../../../../assets/icons/foward-icon.svg" style="width:25px; height:25px;"
+        (click)="navigate('/expense-details')">
+      </div>
+      <ion-progress-bar color="tertiary" value="0.636"></ion-progress-bar>
+      <div class="progress-text">R70 of R110</div>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="action-btn-container">
+    <ion-button expand="block" class="custom-btn" (click)="addExpanse()">Add Expanse</ion-button>
+  </div>
+
+</ion-content>

@@ -1,0 +1,27 @@
+.input-card{
+    border-radius: 25px;
+    border: 1px solid grey;
+    height: 60px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.custom-btn{
+    --background: #0b0f0e;
+    --border-radius: 30px;
+    --box-shadow:none;
+    height:60px;
+    text-transform: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.input-social-media{
+    border-radius: 25px;
+    border: 1px solid grey;
+    height:60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

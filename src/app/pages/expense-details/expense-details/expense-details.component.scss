@@ -1,0 +1,124 @@
+.budget-screen {
+    --background: #ffffff; // white background for main content
+  
+    .header {
+      background: #000000; // solid black
+      color: #ffffff;
+      padding: 24px;
+      text-align: center;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+  
+      h2 {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+      }
+  
+      .check-icon {
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        font-size: 20px;
+        color: #ffffff;
+      }
+  
+      .balance-amount {
+        font-size: 2rem;
+        font-weight: bold;
+  
+        span {
+          font-size: 1rem;
+          display: block;
+          font-weight: normal;
+        }
+      }
+  
+      ion-progress-bar {
+        --background: #ffffff33; // light white transparent background
+        --progress-background: #ffffff; // white progress bar
+        margin-top: 12px;
+        height: 8px;
+        border-radius: 8px;
+      }
+  
+      .spent-text {
+        font-size: 0.9rem;
+        margin-top: 4px;
+      }
+    }
+  
+    .budget-card {
+      background-color: #f2f2f2;
+      margin: 16px;
+      border-radius: 16px;
+  
+      ion-card-title {
+        display: flex;
+        justify-content: space-between;
+        font-size: 1rem;
+        color: #000000;
+  
+        .amount {
+          color: #000000;
+        }
+  
+        .negative-amount {
+          color: #000000;
+        }
+      }
+  
+      .budget-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 0;
+  
+        .subtext {
+          font-size: 0.85rem;
+          color: #555555;
+        }
+  
+        .edit-icon {
+          font-size: 18px;
+          color: #000000;
+          cursor: pointer;
+        }
+      }
+  
+      ion-progress-bar {
+        --background: #cccccc;
+        --progress-background: #000000;
+        margin: 4px 0;
+        height: 6px;
+        border-radius: 6px;
+      }
+  
+      .progress-text {
+        font-size: 0.8rem;
+        color: #333333;
+        margin-bottom: 12px;
+      }
+    }
+  
+    ion-tab-bar {
+      --background: #000000;
+      --color: #ffffff;
+      --color-selected: #ffffff;
+    }
+  
+    ion-icon,
+    ion-label {
+      color: #ffffff;
+    }
+  }
+
+  .custom-btn{
+    --background: #000;
+    --border-radius: 30px;
+    --box-shadow:none;
+    height:60px;
+    text-transform: none;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  

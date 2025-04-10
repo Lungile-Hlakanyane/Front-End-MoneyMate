@@ -1,0 +1,39 @@
+<ion-content class="ion-padding">
+  <div class="content" style="text-align: center; align-items: center; justify-content: center; margin-top: 50px;">
+   <div class="title">
+    <h1 style="color:#000000; font-weight: bold; font-size: 55px; font-style: italic;">MoneyMate</h1>
+     <p style="color:#000; font-weight: bold; font-size: 35px;">Welcome Back</p>
+     <p style="color:grey; font-size:16px; font-weight: 300;position: relative; bottom:22px;">Please Sign In to manage your finances</p>
+   </div>
+  </div>
+  <div class="input-container">
+   <div class="user-input">
+     <div class="input-card">
+       <ion-input style="position: relative; bottom:5px;" placeholder="Email"></ion-input>
+     </div>
+   </div>
+   <div class="user-input">
+     <div class="input-card" style="display: flex; justify-content: space-between;">
+       <ion-input 
+         style="position: relative; bottom:5px;" 
+         [type]="showPassword ? 'text' : 'password'" 
+         placeholder="Password">
+       </ion-input>
+       <p style="font-size: 25px;" (click)="togglePassword()" style="padding-bottom: 5px;">
+         <ion-icon [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+       </p>
+     </div>
+   </div>  
+   <ion-checkbox>Remember me</ion-checkbox>
+   <div class="action-btn-container" style="margin-top: 20px;">  
+     <ion-button expand="block" class="custom-btn" (click)="login()">Sign In</ion-button>
+   </div>
+   
+   <div class="text-container" style="text-align: center; align-items: center;">
+     <p style="color:grey; font-size: 14px; font-weight: 300;">Don't you have an account? 
+       <span style="color:#000; text-decoration: underline;" (click)="navigate('/sign-up')">Sign-Up</span>
+     </p>
+   </div>
+ </div>
+ </ion-content>
+ 

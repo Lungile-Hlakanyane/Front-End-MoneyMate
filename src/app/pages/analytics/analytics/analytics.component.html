@@ -1,0 +1,30 @@
+<ion-content class="ion-padding">
+  <div class="goBack" (click)="navigate('/settings')">
+    <p>X</p>
+  </div>
+  <div class="heading" style="display: flex; justify-content: center; align-items: center; text-align: center; margin-top: 40px; gap: 10px;">
+  </div>
+
+  <div class="body-container" style="display: flex; justify-content: space-between">
+    <p style="color:#000; font-weight: bold; font-size: 30px;">Analytics</p>
+    <p style="color:#000; font-weight: bold; font-size: 30px;" (click)="openShareSheet()">
+      <ion-icon name="share-social-outline"></ion-icon>
+    </p>
+  </div>
+
+  <div class="analytics-container">
+    <div class="pie-chart"></div>
+    <div class="legend" style="margin-top:30px;">
+      <div class="legend-item"><div class="box entertainment"></div> Entertainment (50%)</div>
+      <div class="legend-item"><div class="box bills"></div> Bills (25%)</div>
+     <div class="legend-item"><div class="box groceries"></div> Groceries (25%)</div>
+    </div>
+  </div>
+
+  <div class="action-btn-container" style="margin-top:30px;display:flex; gap:10px;">
+    <ion-button expand="block" class="custom-btn">Download</ion-button>
+    <ion-button expand="block" class="custom-btn-2">View Report</ion-button>
+  </div>
+   
+ </ion-content>
+ 

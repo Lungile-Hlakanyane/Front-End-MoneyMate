@@ -1,20 +1,113 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content class="ion-padding" class="full-content">
+  <div class="header-container" style="position: fixed;top: 0;left: 0;right: 0; z-index: 999;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #000000;">
+   <div>
+    <p style="color:#fff; font-weight: bold; font-size: 20px; font-style: italic;">MoneyMate</p>
+   </div>
+   <div style="position: relative; bottom:28px;" (click)="navigate('/profile')">
+    <p style="color:#fff; font-size: 40px;"><ion-icon name="person-circle-outline"></ion-icon></p>
+   </div>
   </div>
-</ion-content>
+  <div class="body-container" style="position:relative; bottom:10px; top: 100px">
+    <h1 style="color:#fff; font-weight: bold; padding-left: 20px; font-size: 30px;">
+       Financial <br>
+       Dashboard</h1>
+  </div>
+  <div class="finance-stats" style="display: flex; justify-content: space-between; position: relative; bottom:30px; top: 100px">
+    <div style="padding-left: 20px;">
+      <p style="font-size: 30px; color:#fff; line-height: 1px; font-weight: bold;">R750.60</p>
+      <P style="font-size: 20px; font-weight: 200; line-height: 1px; color: #fff;">Total Spent</P>
+    </div>
+    <div class="card" style="display: flex;gap:15px; position:relative; bottom: 90px">
+      <p style="color:#fff; font-size: 30px; position: relative; bottom: 5px;"><ion-icon name="cash-outline"></ion-icon></p>
+      <p style="color:#fff; position: relative; top:12px;">Expenses
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+      </p>
+    </div>
+  </div>
+
+  <div class="graph-stats-container" style="padding: 20px;">
+    <img src="../../assets/stats-graph.png" style="width: 100%;">
+  </div>
+
+  <div class="latest-transfer-container">
+   <div style="display: flex; justify-content:  space-between; padding-left: 25px;">
+    <p style="color:#fff; font-size: 18px;">Latest Transactions</p>
+    <p style="color:#fff; font-size: 30px; position: relative; bottom:17px; padding-right:10px;">
+      <ion-icon name="arrow-forward-outline"></ion-icon>
+    </p>
+   </div>
+  </div>
+
+  <div class="list-transactions" style="margin-bottom: 60px;">
+    <div class="item">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <img src="../../assets/icons/travel-icon-white.svg" style="width: 50px; height: 50px;">
+          </ion-col>
+          <ion-col style="text-align: start;">
+            <p style="color:#fff; font-size: 14px; font-weight: bold;">Travel Expense</p>
+            <p style="color:grey; font-size: 12px; font-weight: bold;line-height: 1px;">31 Jan 2025</p>
+          </ion-col>
+          <ion-col style="text-align: end;">
+            <p style="color:#fff; font-size: 14px; font-weight: bold;">R223,50</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <img src="../../assets/icons/health-icon.svg" style="width: 50px; height: 50px;">
+          </ion-col>
+          <ion-col style="text-align: start;">
+            <p style="color:#fff; font-size: 14px; font-weight: bold;">Health</p>
+            <p style="color:grey; font-size: 12px; font-weight: bold;line-height: 1px;">31 Jan 2025</p>
+          </ion-col>
+          <ion-col style="text-align: end;">
+            <p style="color:#fff; font-size: 14px; font-weight: bold;">R223,50</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <img src="../../assets/icons/eating-icon.svg" style="width: 40px; height: 40px;">
+          </ion-col>
+          <ion-col style="text-align: start;">
+            <p style="color:#fff; font-size: 14px; font-weight: bold;">Eating</p>
+            <p style="color:grey; font-size: 12px; font-weight: bold;line-height: 1px;">31 March 2025</p>
+          </ion-col>
+          <ion-col style="text-align: end;">
+            <p style="color:#fff; font-size: 14px; font-weight: bold;">R223,50</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <img src="../../assets/icons/sports-icon.svg" style="width: 40px; height: 40px;">
+          </ion-col>
+          <ion-col style="text-align: start;">
+            <p style="color:#fff; font-size: 14px; font-weight: bold;">Sports</p>
+            <p style="color:grey; font-size: 12px; font-weight: bold;line-height: 1px;">31 March 2025</p>
+          </ion-col>
+          <ion-col style="text-align: end;">
+            <p style="color:#fff; font-size: 14px; font-weight: bold;">R223,50</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <img src="../../assets/icons/entertainment-icon.svg" style="width: 40px; height: 40px;">
+          </ion-col>
+          <ion-col style="text-align: start;">
+            <p style="color:#fff; font-size: 14px; font-weight: bold;">Entertainment</p>
+            <p style="color:grey; font-size: 12px; font-weight: bold;line-height: 1px;">31 March 2025</p>
+          </ion-col>
+          <ion-col style="text-align: end;">
+            <p style="color:#fff; font-size: 14px; font-weight: bold;">R223,50</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+
+ </ion-content>
+ 

@@ -35,3 +35,12 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+
+.bottom-modal {
+    --width: 100%;
+    --max-height: 50%;
+    --border-radius: 16px 16px 0 0;
+    --margin-top: auto;
+    --box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1); 
+}

@@ -1,0 +1,36 @@
+.custom-btn{
+    --background:  #000;
+    --border-radius: 30px;
+    --box-shadow:none;
+    height:60px;
+    text-transform: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.input-card{
+    border-radius: 25px;
+    border: 1px solid grey;
+    height: 70px;
+    width: 100%;
+    padding:5px;
+}
+
+.search-container{
+    border: 1px solid rgb(238, 238, 238);
+    height:50px;
+    width: 100%;
+    padding:5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    background-color: white;
+    border-radius: 20px;
+}
+  
+.filter-container{
+    padding: 13px;
+    height: 50px;
+    width: auto;
+    background-color: #000;
+    border-radius: 10px;
+}
+  

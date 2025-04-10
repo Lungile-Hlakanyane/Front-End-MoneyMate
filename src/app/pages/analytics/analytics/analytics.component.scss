@@ -1,0 +1,52 @@
+.pie-chart {
+    width: 200px;
+    height: 200px;
+    background: conic-gradient(
+      #a259ff 0% 50%,         /* Entertainment - Purple */
+      #2d9cdb 50% 75%,        /* Bills - Blue */
+      #27ae60 75% 100%        /* Groceries - Green */
+    );
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.legend {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.box {
+    width: 15px;
+    height: 15px;
+}
+
+.entertainment { background-color: #a259ff; }
+.bills { background-color: #2d9cdb; }
+.groceries { background-color: #27ae60; }
+
+.custom-btn{
+    --background: #000;
+    --border-radius: 30px;
+    --box-shadow:none;
+    height:60px;
+    text-transform: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.custom-btn-2{
+    --background: #000;
+    --border-radius: 30px;
+    --box-shadow:none;
+    height:60px;
+    text-transform: none;
+    font-weight: bold;
+    font-size: 20px;
+}

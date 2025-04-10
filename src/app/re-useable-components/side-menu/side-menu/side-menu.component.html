@@ -1,0 +1,18 @@
+<ion-content class="ion-padding" style="height: 70%; width: 80%;">
+  <div class="close-container">    
+    <p style="font-size: 50px; font-weight: bold; height: 10px; margin-top: 40px; color: grey;" (click)="closeMenu()">
+      <ion-icon name="close-outline"></ion-icon>
+    </p>
+    <div class="header-text" style="margin-top:15px;">Main Menu</div>
+  </div>
+  <ion-list lines="none">
+    <ion-item>
+      <ion-icon name="person-circle-outline"></ion-icon>
+      <ion-label>Profile</ion-label>
+    </ion-item>
+    <ion-item (click)="logout()">
+      <ion-icon name="log-out-outline"></ion-icon>
+      <ion-label>Logout</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header translucent>
+  <ion-toolbar color="dark">
+    <ion-title>Add Expense</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" color="light" (click)="dismissModal()">
+        <ion-icon name="close-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="add-expense-content" [fullscreen]="true">
+  <form [formGroup]="expenseForm" (ngSubmit)="submitExpense()">
+    <ion-list lines="none">
+      <ion-item>
+        <ion-label position="floating" color="light">Amount (R)</ion-label>
+        <ion-input type="number" formControlName="amount" color="light"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" color="light">Category</ion-label>
+        <ion-select formControlName="category" interface="popover" color="light">
+          <ion-select-option value="transport">Transport</ion-select-option>
+          <ion-select-option value="groceries">Groceries</ion-select-option>
+          <ion-select-option value="bills">Bills</ion-select-option>
+          <ion-select-option value="entertainment">Entertainment</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" color="light">Date</ion-label>
+        <ion-datetime formControlName="date" color="light" displayFormat="MMM DD, YYYY"></ion-datetime>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="block" type="submit" class="custom-btn">
+      Save Expense
+    </ion-button>
+  </form>
+</ion-content>

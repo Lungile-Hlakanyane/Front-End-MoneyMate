@@ -1,0 +1,47 @@
+<ion-content class="ion-padding">
+  <div class="goBack" (click)="navigate('/home')">
+    <p>X</p>
+  </div>
+  <div class="heading" style="display: flex; justify-content: center; align-items: center; text-align: center; margin-top: 40px; gap: 10px;">
+    <div class="circle" style="display: flex; justify-content: center; align-items: center; border-radius: 50%; height: 100px; width: 100px; background-color: #333;"
+    (click)="presentActionSheet()">
+      <p style="color: #fff; font-weight: bold; margin: 0;">LH</p>
+    </div>
+    <p style="color:#000; font-weight: bold; font-size: 22px;">Lungile Hlakanyane <br>
+      <span style="color:#333; font-size: 13px;">Joined March 20, 2025</span>
+    </p>
+  </div>
+
+  <div class="options-container">
+    <p class="heading text" style="color:#000; font-weight: bold; font-size: 22px;">General</p>
+    <div style="display: flex; gap:10px;">
+      <ion-icon name="person-outline"></ion-icon>
+      <p style="color:#000; font-size: 12px; position: relative; bottom:10px;">Lungile Hlakanyane</p>
+    </div>
+    <div style="display: flex; gap:10px;">
+      <ion-icon name="mail-outline"></ion-icon>
+      <p style="color:#000; font-size: 12px; position: relative; bottom:10px;">lungilehlakanyanegmail.com</p>
+    </div>
+    <div style="display: flex; gap:10px;">
+      <ion-icon name="call-outline"></ion-icon>
+      <p style="color:#000; font-size: 12px; position: relative; bottom:10px;">+27 63 635 2578</p>
+    </div>
+    <div style="display: flex; gap:10px;">
+      <ion-icon name="chatbubble-outline"></ion-icon>
+      <p style="color:#000; font-size: 12px; position: relative; bottom:10px;">Feedback</p>
+    </div>
+    <p class="heading text" style="color:#000; font-weight: bold; font-size: 22px;">Notifications</p>
+    <div style="margin-bottom:10px;">
+      <ion-toggle justify="space-between">Push Notifications</ion-toggle>
+    </div>
+    <div>
+      <ion-toggle justify="space-between">SMS Notifications</ion-toggle>
+    </div>
+  </div>
+
+  <div class="action-btn-container" style="margin-top:25px">
+    <ion-button expand="block" class="custom-btn" (click)="logout()">Sign Out</ion-button>
+  </div>
+  
+ </ion-content>
+ 

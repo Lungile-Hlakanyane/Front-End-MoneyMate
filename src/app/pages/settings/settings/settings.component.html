@@ -1,0 +1,39 @@
+<ion-content class="ion-padding" style="margin-top:20px; display: flex; flex-direction: column; height: 100%;" fullscreen="true">
+  <div class="header">
+    <div class="align-horizontal" style="display: flex; gap:10px; justify-content: space-between;">
+      <div class="back-button" style="display: flex; gap:15px;">
+        <p style="color:#000;font-weight: bold; font-size: 30px;" (click)="navigateToHome()">
+          <ion-icon name="arrow-back-outline"></ion-icon></p>
+        <p style="color:#000; font-weight: bold; font-size:18px; position: relative; top:17px;">Settings</p>        
+      </div>
+    </div>
+  </div>
+
+  <div class="main-container" style="flex-grow: 1; overflow-y: auto;">
+    <div class="search-and-filter" style="display: flex; justify-content: space-evenly;">
+      <div class="search-container" style="display: flex; gap: 10px;">
+        <p style="color:grey; font-size: 25px; position: relative; bottom:19px">
+          <ion-icon name="search-outline"></ion-icon>
+        </p>
+        <ion-input 
+          placeholder="Search..." 
+          [(ngModel)]="searchTerm" 
+          (ionInput)="filterSettings()">
+        </ion-input>
+      </div>
+    </div>
+
+    <div class="options" style="position:relative; top:15px;">
+      <ion-list lines="none">
+        <ion-item *ngFor="let option of filteredOptions" (click)="navigate(option.link, option.label)">
+          <ion-icon slot="start" [name]="option.icon"></ion-icon>
+          <ion-label>{{ option.label }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+
+
+  <div class="action-btn-container" style="position: relative; top:20px; text-align: center; padding-bottom: 20px;">
+    <ion-button expand="block" style="font-size:18px" class="custom-btn" (click)="deleteAccount()">Delete Account</ion-button>
+  </div>

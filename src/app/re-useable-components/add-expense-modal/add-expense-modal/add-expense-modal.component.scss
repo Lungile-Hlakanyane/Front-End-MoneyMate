@@ -1,0 +1,52 @@
+.add-expense-content {
+    --background: #fff; // white background
+  
+    ion-toolbar {
+      --background: #fff;
+      --color: #000;
+      border-bottom: 1px solid #ccc;
+    }
+  
+    ion-title {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #000;
+    }
+  
+    ion-item {
+      --background: transparent;
+      --border-color: #ddd;
+      --color: #000;
+  
+      ion-label,
+      ion-input,
+      ion-select,
+      ion-datetime {
+        color: #000 !important;
+      }
+    }
+  
+    ion-button.submit-btn {
+      margin: 24px 16px;
+      --background: #000;
+      --color: #fff;
+      font-weight: bold;
+      border-radius: 12px;
+    }
+  
+    form {
+      padding: 16px;
+    }
+  }
+  
+  .custom-btn {
+    --background: #000;
+    --border-radius: 30px;
+    --box-shadow: none;
+    color: #fff;
+    height: 60px;
+    text-transform: none;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
