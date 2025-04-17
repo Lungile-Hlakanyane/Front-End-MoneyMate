@@ -17,6 +17,8 @@ import { AddExpenseModalComponent } from './re-useable-components/add-expense-mo
 import { ExpenseDetailsComponent } from './pages/expense-details/expense-details/expense-details.component';
 import { AnalyticsComponent } from './pages/analytics/analytics/analytics.component';
 import { ChartdiagramComponent } from './re-useable-components/chart/chartdiagram/chartdiagram.component';
+import { NotificationsComponent } from './pages/notifications/notifications/notifications.component';
+import { ViewNotificationComponent } from './pages/view-notification/view-notification/view-notification.component';
 
 
 @NgModule({
@@ -24,7 +26,7 @@ import { ChartdiagramComponent } from './re-useable-components/chart/chartdiagra
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, SignUpComponent, 
     NgxSpinnerModule, SignInComponent, SideMenuComponent, ProfileComponent, ViewImageModalComponent, 
     SettingsComponent, EditProfileComponent, ExpensesComponent,  AddExpenseModalComponent, ExpenseDetailsComponent, 
-    AnalyticsComponent, ChartdiagramComponent],
+    AnalyticsComponent, ChartdiagramComponent, NotificationsComponent, ViewNotificationComponent],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

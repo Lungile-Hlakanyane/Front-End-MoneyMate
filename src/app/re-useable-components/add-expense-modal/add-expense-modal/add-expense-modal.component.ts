@@ -22,6 +22,7 @@ export class AddExpenseModalComponent  implements OnInit {
     private loadingController: LoadingController
   ) {
     this.expenseForm = this.fb.group({
+      description: ['', Validators.required],
       amount: ['', [Validators.required, Validators.min(0.01)]],
       category: ['', Validators.required],
       date: ['', Validators.required]

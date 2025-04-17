@@ -1,0 +1,32 @@
+<ion-content class="ion-padding">
+  <div class="goBack" (click)="navigate('/home')" style="display: flex; gap:20px;">
+    <p style="color:#000; font-weight: bold; font-size: 30px;">X</p>
+    <p style="color:#000; font-weight: bold; font-size: 30px;">Notifications</p>
+  </div>
+  <ion-segment value="new-matched" class="segment-tabs">
+    <ion-segment-button value="message">
+      <ion-label>Message</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="new-matched">
+      <ion-label>Archived</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div class="section-title">Last 7 days</div>
+
+  <ion-list>
+    <ion-item *ngFor="let item of notifications" class="notification-item">
+      <ion-icon slot="start" name="person-circle-outline" class="avatar-icon"></ion-icon>
+      <ion-label>
+        <h3><strong>{{ item.name }}</strong> was matched to you</h3>
+        <p>{{ item.time }} minutes ago</p>
+      </ion-label>
+      <div class="right-info">
+        <div class="time">{{ item.timestamp }}</div>
+        <ion-button size="small" fill="outline" color="danger"
+        (click)="navigate('/view-notification')"
+        >View</ion-button>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

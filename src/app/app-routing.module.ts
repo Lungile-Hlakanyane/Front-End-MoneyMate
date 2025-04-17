@@ -9,6 +9,8 @@ import { EditProfileComponent } from './pages/edit-profile/edit-profile/edit-pro
 import { ExpensesComponent } from './pages/expenses/expenses/expenses.component';
 import { ExpenseDetailsComponent } from './pages/expense-details/expense-details/expense-details.component';
 import { AnalyticsComponent } from './pages/analytics/analytics/analytics.component';
+import { NotificationsComponent } from './pages/notifications/notifications/notifications.component';
+import { ViewNotificationComponent } from './pages/view-notification/view-notification/view-notification.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -18,6 +20,7 @@ const routes: Routes = [
   { path: 'edit-profile', component:EditProfileComponent},
   { path: 'expense-details', component:ExpenseDetailsComponent},
   { path: 'analytics', component:AnalyticsComponent},
+  { path: 'view-notification', component:ViewNotificationComponent},
   {
     path:'',
     component: TabsComponent,
@@ -25,6 +28,7 @@ const routes: Routes = [
       { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
       { path: 'expenses', component: ExpensesComponent},
       { path: 'settings', component:SettingsComponent},
+      { path: 'notifications', component: NotificationsComponent},
     ]
   }
 ];

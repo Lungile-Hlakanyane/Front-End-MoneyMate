@@ -1,0 +1,27 @@
+<ion-content class="ion-padding view-notification-page">
+  <div class="goBack" (click)="navigate('/notifications')" style="display: flex; gap:20px;">
+    <p style="color:#000; font-weight: bold; font-size: 30px;">X</p>
+  </div>
+
+  <div class="notification-card">
+    <div class="icon-wrapper">
+      <ion-icon name="notifications-outline"></ion-icon>
+      <div class="notification-dot"></div>
+    </div>
+    <h2 class="notification-title">View Notification</h2>
+    <p class="notification-description">
+      You will always have a full overview of events 
+      that require your attention, and which gives you good control
+    </p>
+  </div>
+
+  <div class="action-btn-container">
+    <ion-button expand="block" class="custom-btn" (click)="handleArchiveAction()" *ngIf="!isArchived">
+      Archive
+    </ion-button>
+    <ion-button expand="block"  class="custom-btn" disabled *ngIf="isArchived">
+      Unarchive
+    </ion-button>
+    
+  </div>
+</ion-content>

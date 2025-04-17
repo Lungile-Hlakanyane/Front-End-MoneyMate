@@ -13,6 +13,10 @@
   <form [formGroup]="expenseForm" (ngSubmit)="submitExpense()">
     <ion-list lines="none">
       <ion-item>
+        <ion-label position="floating" color="light">Description</ion-label>
+        <ion-input type="text" formControlName="description" color="light"></ion-input>
+      </ion-item>
+      <ion-item>
         <ion-label position="floating" color="light">Amount (R)</ion-label>
         <ion-input type="number" formControlName="amount" color="light"></ion-input>
       </ion-item>

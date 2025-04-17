@@ -1,0 +1,65 @@
+.view-notification-page {
+    --background: #e6f0fa; // light blue background
+  
+    .notification-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-top: 80px;
+      padding: 20px;
+    }
+  
+    .icon-wrapper {
+      position: relative;
+      background: white;
+      border-radius: 50%;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    ion-icon {
+      font-size: 40px;
+      color: #2c3e50;
+    }
+  
+    .notification-dot {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      height: 10px;
+      width: 10px;
+      background-color: #ff6b00;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+  
+    .notification-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+    }
+  
+    .notification-description {
+      font-size: 16px;
+      color: #555;
+      max-width: 300px;
+      line-height: 1.5;
+    }
+  }
+
+  .custom-btn{
+    --background: #000;
+    --border-radius: 30px;
+    --box-shadow:none;
+    height:60px;
+    text-transform: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+  
