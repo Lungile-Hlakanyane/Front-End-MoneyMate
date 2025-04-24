@@ -6,6 +6,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ActionSheetController, ToastController } from '@ionic/angular';
 import { ViewImageModalComponent } from 'src/app/re-useable-components/view-image-modal/view-image-modal/view-image-modal.component';
+import { User } from 'src/app/models/User';
+import { UserService } from 'src/app/services/User-Service/user.service';
+
 
 @Component({
   selector: 'app-edit-profile',
@@ -15,9 +18,17 @@ import { ViewImageModalComponent } from 'src/app/re-useable-components/view-imag
   imports:[IonicModule, FormsModule, CommonModule, ReactiveFormsModule]
 })
 export class EditProfileComponent  implements OnInit {
-  
+  userDetails: any;
   showPassword = false;
   newPassword: string = '';
+
+  user: User = {
+    id: 0,
+    username: '',
+    email: '',
+    phoneNumber: '',
+    password:''
+  };
 
   constructor(
     private router:Router,
@@ -26,7 +37,8 @@ export class EditProfileComponent  implements OnInit {
     private actionSheetController:ActionSheetController,
     private toastController:ToastController,
     private loadingController:LoadingController,
-    private toastControler:ToastController
+    private toastControler:ToastController,
+    private userService:UserService
   ) { }
 
   navigate(link:string){
@@ -37,7 +49,19 @@ export class EditProfileComponent  implements OnInit {
     this.showPassword = !this.showPassword;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    const loggedInUser = JSON.parse(localStorage.getItem('user') || '{}');
+    if (loggedInUser?.email) {
+      this.userService.getUserByEmail(loggedInUser.email).subscribe({
+        next: (res) => {
+          this.user = res;
+        },
+        error: (err) => {
+          console.error('Failed to load user data:', err);
+        }
+      });
+    }
+  }
 
   async presentActionSheet() {
     const actionSheet = await this.actionSheetController.create({
@@ -75,23 +99,80 @@ export class EditProfileComponent  implements OnInit {
     };
   }
 
-   async saveProfile() {
+  async saveProfile() {
     const loading = await this.loadingController.create({
       message: 'Saving...',
       spinner: 'circular',
       duration: 2000
     });
     await loading.present();
-    setTimeout(async () => {
-      await loading.dismiss();
+  
+    const updatedUser: User = {
+      ...this.user, // assuming you store the current user in `this.user`
+      password: this.newPassword || this.user.password, // only update if user typed a new one
+      // optionally update other fields from inputs if you’re binding them
+    };
+  
+    this.userService.updateUser(updatedUser).subscribe({
+      next: async (response) => {
+        await loading.dismiss();
+        const toast = await this.toastController.create({
+          message: 'Profile Saved Successfully...',
+          position: 'top',
+          duration: 2000,
+          color: 'success',
+        });
+        await toast.present();
+        localStorage.setItem('user', JSON.stringify(response)); // update local cache if needed
+      },
+      error: async (err) => {
+        await loading.dismiss();
+        const toast = await this.toastController.create({
+          message: 'Failed to save profile.',
+          position: 'top',
+          duration: 2000,
+          color: 'danger',
+        });
+        await toast.present();
+        console.error('Update error:', err);
+      }
+    });
+  }
+  
+  
+
+  loadUser() {
+    const user = this.userService.getLoggedInUser();
+    if (user?.email) {
+      this.userService.getUserByEmail(user.email).subscribe({
+        next: (data) => this.userDetails = data,
+        error: (err) => console.error('Error fetching user details:', err)
+      });
+    }
+  }
+
+  async togglePushNotifications(event: any) {
+    if (event.detail.checked) {
       const toast = await this.toastController.create({
-        message: 'Profile Saved Successfully...',
-        position:'top',
+        message: 'Push Notifications activated...',
         duration: 2000,
         color: 'success',
+        position: 'top'
       });
-      await toast.present();
-    }, 2000);
+      toast.present();
+    }
+  }
+  
+  async toggleSmsNotifications(event: any) {
+    if (event.detail.checked) {
+      const toast = await this.toastController.create({
+        message: 'SMS Notifications activated...',
+        duration: 2000,
+        color: 'success',
+        position: 'top'
+      });
+      toast.present();
+    }
   }
 
 }

@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/Auth-Service/auth.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -22,7 +23,8 @@ export class SignInComponent  implements OnInit {
     private router:Router,
     private loadingController:LoadingController,
     private toastController:ToastController,
-    private fb:FormBuilder
+    private fb:FormBuilder,
+    private authService:AuthService
   ) { }
 
   ngOnInit() {
@@ -39,35 +41,46 @@ export class SignInComponent  implements OnInit {
   async login() {
     if (this.signInForm.valid) {
       const loading = await this.loadingController.create({
-        message: 'Signing in..',
-        spinner: 'circular',
-        duration: 3000
+        message: 'Signing in...',
+        spinner: 'circular'
       });
       await loading.present();
-      setTimeout(async () => {
-        await loading.dismiss();
-        const toast = await this.toastController.create({
-          message: 'Successfully logged in...',
-          duration: 2000,
-          position: 'top',
-          color: 'success'
-        });
-        await toast.present();
-        setTimeout(() => {
+  
+      const { email, password } = this.signInForm.value;
+  
+      this.authService.login(email, password).subscribe({
+        next: async (res) => {
+          await loading.dismiss();
+      
+          const toast = await this.toastController.create({
+            message: 'Successfully logged in',
+            duration: 2000,
+            color: 'success',
+            position: 'top'
+          });
+          await toast.present();
+      
+          // Safely store user email and any relevant info from response
+          localStorage.setItem('user', JSON.stringify({
+            email: email,
+            token: res.token, // if applicable
+            name: res.name,   // or any other info returned from backend
+          }));
+      
           this.router.navigateByUrl('/home');
-        }, 2000);
-      }, 3000);
+        },
+      });
     } else {
       const toast = await this.toastController.create({
         message: 'Please fill in all fields correctly!',
         duration: 2000,
-        position: 'top',
-        color: 'danger'
+        color: 'danger',
+        position: 'top'
       });
       await toast.present();
     }
   }
-
+  
   navigate(link:string){
     this.router.navigateByUrl(link);
   }

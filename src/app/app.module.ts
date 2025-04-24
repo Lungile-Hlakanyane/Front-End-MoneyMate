@@ -19,14 +19,14 @@ import { AnalyticsComponent } from './pages/analytics/analytics/analytics.compon
 import { ChartdiagramComponent } from './re-useable-components/chart/chartdiagram/chartdiagram.component';
 import { NotificationsComponent } from './pages/notifications/notifications/notifications.component';
 import { ViewNotificationComponent } from './pages/view-notification/view-notification/view-notification.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, SignUpComponent, 
     NgxSpinnerModule, SignInComponent, SideMenuComponent, ProfileComponent, ViewImageModalComponent, 
     SettingsComponent, EditProfileComponent, ExpensesComponent,  AddExpenseModalComponent, ExpenseDetailsComponent, 
-    AnalyticsComponent, ChartdiagramComponent, NotificationsComponent, ViewNotificationComponent],
+    AnalyticsComponent, ChartdiagramComponent, NotificationsComponent, ViewNotificationComponent,HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
