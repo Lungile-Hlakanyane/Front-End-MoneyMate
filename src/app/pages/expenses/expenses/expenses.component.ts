@@ -8,6 +8,7 @@ import { ActionSheetController } from '@ionic/angular';
 import { AddExpenseModalComponent } from 'src/app/re-useable-components/add-expense-modal/add-expense-modal/add-expense-modal.component';
 import { UserService } from 'src/app/services/User-Service/user.service';
 import { User } from 'src/app/models/User';
+import { ExpenseService } from 'src/app/services/Expense-Service/expense.service';
 
 @Component({
   selector: 'app-expenses',
@@ -18,6 +19,7 @@ import { User } from 'src/app/models/User';
 })
 export class ExpensesComponent  implements OnInit {
   user:User | null = null;
+  totalSpent: number = 0;
 
   constructor(
     private router:Router,
@@ -25,6 +27,7 @@ export class ExpensesComponent  implements OnInit {
     private loadingController:LoadingController,
     private modal:ModalController,
     private userService:UserService,
+    private expenseService:ExpenseService
   ) { }
 
   ngOnInit() {
@@ -34,6 +37,17 @@ export class ExpensesComponent  implements OnInit {
         next: (res) => {
           this.user = res;
           console.log(res);
+          if (this.user?.id) {
+            this.expenseService.getExpensesByUserId(this.user.id).subscribe({
+              next: (expenses) => {
+                this.totalSpent = expenses.reduce((acc, curr) => acc + (curr.amount || 0), 0);
+                console.log('Total Spent:', this.totalSpent);
+              },
+              error: (err) => {
+                console.error('Error loading expenses:', err);
+              }
+            });
+          }
         },
         error: (err) => {
           console.error('Failed to load user data:', err);
@@ -41,6 +55,7 @@ export class ExpensesComponent  implements OnInit {
       });
     }
   }
+  
 
   navigate(link:string){
     this.router.navigateByUrl(link)

@@ -32,4 +32,9 @@ export class ExpenseService {
     return this.http.get<ExpenseDTO>(`${this.apiUrl}/${id}`);
   }
 
+  getExpensesByUserId(userId: number): Observable<ExpenseDTO[]> {
+    return this.http.get<ExpenseDTO[]>(`${this.apiUrl}/user/${userId}`);
+  }
+  
+
 }

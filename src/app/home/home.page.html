@@ -46,69 +46,24 @@
   <div class="list-transactions" style="margin-bottom: 60px;">
     <div class="item">
       <ion-grid>
-        <ion-row>
+        <ion-row *ngFor="let expense of expenses">
           <ion-col>
-            <img src="../../assets/icons/travel-icon-white.svg" style="width: 50px; height: 50px;">
+            <img [src]="getIcon(expense.category)" style="width: 40px; height: 40px;">
           </ion-col>
           <ion-col style="text-align: start;">
-            <p style="color:#fff; font-size: 14px; font-weight: bold;">Travel Expense</p>
-            <p style="color:grey; font-size: 12px; font-weight: bold;line-height: 1px;">31 Jan 2025</p>
+            <p style="color:#fff; font-size: 14px; font-weight: bold;">{{ expense.description }}</p>
+            <p style="color:grey; font-size: 12px; font-weight: bold;line-height: 1px;">
+              {{ expense.dateTime | date:'dd MMM yyyy' }}
+            </p>
           </ion-col>
           <ion-col style="text-align: end;">
-            <p style="color:#fff; font-size: 14px; font-weight: bold;">R223,50</p>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <img src="../../assets/icons/health-icon.svg" style="width: 50px; height: 50px;">
-          </ion-col>
-          <ion-col style="text-align: start;">
-            <p style="color:#fff; font-size: 14px; font-weight: bold;">Health</p>
-            <p style="color:grey; font-size: 12px; font-weight: bold;line-height: 1px;">31 Jan 2025</p>
-          </ion-col>
-          <ion-col style="text-align: end;">
-            <p style="color:#fff; font-size: 14px; font-weight: bold;">R223,50</p>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <img src="../../assets/icons/eating-icon.svg" style="width: 40px; height: 40px;">
-          </ion-col>
-          <ion-col style="text-align: start;">
-            <p style="color:#fff; font-size: 14px; font-weight: bold;">Eating</p>
-            <p style="color:grey; font-size: 12px; font-weight: bold;line-height: 1px;">31 March 2025</p>
-          </ion-col>
-          <ion-col style="text-align: end;">
-            <p style="color:#fff; font-size: 14px; font-weight: bold;">R223,50</p>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <img src="../../assets/icons/sports-icon.svg" style="width: 40px; height: 40px;">
-          </ion-col>
-          <ion-col style="text-align: start;">
-            <p style="color:#fff; font-size: 14px; font-weight: bold;">Sports</p>
-            <p style="color:grey; font-size: 12px; font-weight: bold;line-height: 1px;">31 March 2025</p>
-          </ion-col>
-          <ion-col style="text-align: end;">
-            <p style="color:#fff; font-size: 14px; font-weight: bold;">R223,50</p>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <img src="../../assets/icons/entertainment-icon.svg" style="width: 40px; height: 40px;">
-          </ion-col>
-          <ion-col style="text-align: start;">
-            <p style="color:#fff; font-size: 14px; font-weight: bold;">Entertainment</p>
-            <p style="color:grey; font-size: 12px; font-weight: bold;line-height: 1px;">31 March 2025</p>
-          </ion-col>
-          <ion-col style="text-align: end;">
-            <p style="color:#fff; font-size: 14px; font-weight: bold;">R223,50</p>
+            <p style="color:#fff; font-size: 14px; font-weight: bold;">R{{ expense.amount | number:'1.2-2' }}</p>
           </ion-col>
         </ion-row>
       </ion-grid>
     </div>
   </div>
+  
 
  </ion-content>
  

@@ -2,9 +2,9 @@
 
   <!-- Header Section -->
   <div class="header">
-    <h2>December budget</h2>
+    <h2>Total Expenses</h2>
     <ion-icon name="close-sharp" class="check-icon" (click)="navigate('/home')"></ion-icon>
-    <div class="balance-amount">R3,250 <span>Balance</span></div>
+    <div class="balance-amount">R {{totalSpent | number: '1.0-2'}} <span>Spent so far</span></div>
     <ion-progress-bar color="medium" value="0.292"></ion-progress-bar>
     <div class="spent-text">R949 of R3,250 spent</div>
   </div>
