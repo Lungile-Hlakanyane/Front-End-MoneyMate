@@ -12,7 +12,10 @@
   <!-- Income Section -->
   <ion-card class="budget-card">
     <ion-card-header>
-      <ion-card-title>Income <span class="amount">R29</span></ion-card-title>
+      <ion-card-title>
+        Income 
+        <span class="amount" (click)="presentSalaryPrompt()" style="cursor: pointer;">+</span>
+      </ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <div class="budget-row">

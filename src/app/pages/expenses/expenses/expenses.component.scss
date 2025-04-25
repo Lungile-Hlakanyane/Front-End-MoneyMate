@@ -121,4 +121,17 @@
     font-weight: bold;
     font-size: 20px;
   }
+
+  // new styles here
+  .amount {
+    color: green;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 10px;
+  }
+  
+  .amount:hover {
+    transform: scale(1.2);
+    transition: 0.2s ease-in-out;
+  }
   

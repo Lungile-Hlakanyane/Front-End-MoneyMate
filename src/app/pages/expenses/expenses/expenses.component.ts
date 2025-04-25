@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, IonicModule, LoadingController, ModalController, } from '@ionic/angular';
+import { AlertController, IonicModule, LoadingController, ModalController, ToastController, } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -9,6 +9,8 @@ import { AddExpenseModalComponent } from 'src/app/re-useable-components/add-expe
 import { UserService } from 'src/app/services/User-Service/user.service';
 import { User } from 'src/app/models/User';
 import { ExpenseService } from 'src/app/services/Expense-Service/expense.service';
+import { IncomeDTO } from 'src/app/models/Income';
+import { IncomeService } from 'src/app/services/Income-service/income.service';
 
 @Component({
   selector: 'app-expenses',
@@ -27,7 +29,9 @@ export class ExpensesComponent  implements OnInit {
     private loadingController:LoadingController,
     private modal:ModalController,
     private userService:UserService,
-    private expenseService:ExpenseService
+    private expenseService:ExpenseService,
+    private incomeService:IncomeService,
+    private toastController:ToastController
   ) { }
 
   ngOnInit() {
@@ -77,6 +81,84 @@ export class ExpensesComponent  implements OnInit {
       console.log('Modal returned data:', data);
     }
   }
+  
+  async presentSalaryPrompt() {
+    const alert = await this.alertController.create({
+      header: 'Enter Monthly Salary',
+      inputs: [
+        {
+          name: 'salary',
+          type: 'number',
+          placeholder: 'Total monthly salary',
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('User cancelled salary input');
+          },
+        },
+        {
+          text: 'Save',
+          handler: async (data) => {
+            const salary = parseFloat(data.salary);
+            if (!isNaN(salary) && this.user?.id) {
+              const incomeDTO: IncomeDTO = {
+                amount: salary,
+                userId: this.user.id,
+              };
+  
+              // Show loading spinner
+              const loading = await this.loadingController.create({
+                message: 'Saving...',
+                spinner: 'circular',
+                duration: 2000, // Optional: automatically hide after 2 seconds
+              });
+              await loading.present();
+  
+              // Call the backend to save income
+              this.incomeService.createIncome(incomeDTO).subscribe({
+                next: async (res) => {
+                  await loading.dismiss(); // Dismiss the spinner
+                  console.log('Salary saved successfully:', res);
+  
+                  // Show toast after successful save
+                  const toast = await this.toastController.create({
+                    message: 'Salary saved successfully',
+                    duration: 2000,
+                    color: 'success',
+                    position: 'top',
+                  });
+                  toast.present();
+                },
+                error: async (err) => {
+                  await loading.dismiss(); // Dismiss the spinner
+                  console.error('Failed to save salary:', err);
+  
+                  // Optional: Show error toast
+                  const errorToast = await this.toastController.create({
+                    message: 'Failed to save salary. Try again.',
+                    duration: 2000,
+                    color: 'danger',
+                    position: 'top',
+                  });
+                  errorToast.present();
+                },
+              });
+            } else {
+              console.log('Invalid input or user not loaded.');
+            }
+          },
+        },
+      ],
+    });
+    await alert.present();
+  }
+  
+
   
 
 }
