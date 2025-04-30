@@ -5,8 +5,11 @@
     <h2>Total Expenses</h2>
     <ion-icon name="close-sharp" class="check-icon" (click)="navigate('/home')"></ion-icon>
     <div class="balance-amount">R {{totalSpent | number: '1.0-2'}} <span>Spent so far</span></div>
-    <ion-progress-bar color="medium" value="0.292"></ion-progress-bar>
-    <div class="spent-text">R949 of R3,250 spent</div>
+    <ion-progress-bar 
+    color="medium" 
+    [value]="getSpendingProgress()">
+  </ion-progress-bar>  
+    <div class="spent-text">R{{totalSpent | number: '1.0-2'}} of R{{incomeAmount | number: '1.0-2'}} spent</div>
   </div>
 
   <!-- Income Section -->
@@ -21,51 +24,56 @@
       <div class="budget-row">
         <div>
           <strong>Income</strong>
-          <div class="subtext">R5,000 left</div>
+          <div class="subtext">
+            R{{ getRemainingAmount() | number: '1.0-2' }} left
+          </div>
         </div>
-       <img src="../../../../assets/icons/foward-icon.svg" style="width:25px; height:25px;"
-       (click)="navigate('/expense-details')">
       </div>
-      <ion-progress-bar color="primary" value="0.0058"></ion-progress-bar>
-      <div class="progress-text">R29 of R5,000</div>
+    
+      <ion-progress-bar 
+        color="primary" 
+        [value]="getSpendingProgress()">
+      </ion-progress-bar>
+    
+      <div class="progress-text">
+        R{{ totalSpent | number: '1.0-2' }} of R{{ incomeAmount | number: '1.0-2' }}
+      </div>
     </ion-card-content>
+    
   </ion-card>
 
   <!-- Expenses Section -->
-  <ion-card class="budget-card">
+  <ion-card class="budget-card-part-2">
     <ion-card-header>
-      <ion-card-title>Expenses <span class="negative-amount">- R201</span></ion-card-title>
+      <ion-card-title>All Expenses <span class="negative-amount">R {{totalSpent | number: '1.0-2'}}</span></ion-card-title>
     </ion-card-header>
+
     <ion-card-content>
-
-      <!-- Mobile Phone -->
-      <div class="budget-row">
-        <div>
-          <strong>Mobile Phone</strong>
-          <div class="subtext">R96 left</div>
+      <div class="list-transactions" style="margin-bottom: 60px;">
+        <div class="item">
+          <ion-grid>
+            <ion-row *ngFor="let expense of expenses" (click)="presentActionSheet(expense)">
+              <ion-col>
+                <img [src]="getIcon(expense.category)" style="width: 40px; height: 40px;">
+              </ion-col>
+              <ion-col style="text-align: start;">
+                <p style="color:#fff; font-size: 14px; font-weight: bold;">{{ expense.description }}</p>
+                <p style="color:grey; font-size: 12px; font-weight: bold;line-height: 1px;">
+                  {{ expense.dateTime | date:'dd MMM yyyy' }}
+                </p>
+              </ion-col>
+              <ion-col style="text-align: end;">
+                <p style="color:#fff; font-size: 14px; font-weight: bold;">R{{ expense.amount | number:'1.2-2' }}</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
         </div>
-        <img src="../../../../assets/icons/foward-icon.svg" style="width:25px; height:25px;"
-        (click)="navigate('/expense-details')">
       </div>
-      <ion-progress-bar color="secondary" value="0.0857"></ion-progress-bar>
-      <div class="progress-text">R9 of R105</div>
-
-      <!-- Business Services -->
-      <div class="budget-row">
-        <div>
-          <strong>Business Services</strong>
-          <div class="subtext">R40 left</div>
-        </div>
-        <img src="../../../../assets/icons/foward-icon.svg" style="width:25px; height:25px;"
-        (click)="navigate('/expense-details')">
-      </div>
-      <ion-progress-bar color="tertiary" value="0.636"></ion-progress-bar>
-      <div class="progress-text">R70 of R110</div>
     </ion-card-content>
   </ion-card>
 
   <div class="action-btn-container">
-    <ion-button expand="block" class="custom-btn" (click)="addExpanse()">Add Expanse</ion-button>
+    <ion-button expand="block" class="custom-btn" (click)="addExpanse()">Add Expense</ion-button>
   </div>
 
 </ion-content>

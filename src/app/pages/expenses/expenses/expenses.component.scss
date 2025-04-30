@@ -135,3 +135,55 @@
     transition: 0.2s ease-in-out;
   }
   
+  .budget-card-part-2 {
+    background-color: #000;
+    margin: 16px;
+    border-radius: 16px;
+
+    ion-card-title {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1rem;
+      color: #fff;
+
+      .amount {
+        color: #000000;
+      }
+
+      .negative-amount {
+        color: #fff;
+      }
+    }
+
+    .budget-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px 0;
+
+      .subtext {
+        font-size: 0.85rem;
+        color: #555555;
+      }
+
+      .edit-icon {
+        font-size: 18px;
+        color: #000000;
+        cursor: pointer;
+      }
+    }
+
+    ion-progress-bar {
+      --background: #cccccc;
+      --progress-background: #000000;
+      margin: 4px 0;
+      height: 6px;
+      border-radius: 6px;
+    }
+
+    .progress-text {
+      font-size: 0.8rem;
+      color: #333333;
+      margin-bottom: 12px;
+    }
+  }

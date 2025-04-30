@@ -27,10 +27,10 @@ export class SettingsComponent  implements OnInit {
 
   settingsOptions = [
     { category: 'Account', label: 'Edit Profile', link: '', icon: 'person-circle-outline' },
-    { category: 'Security', label: 'Security', link: '', icon: 'lock-closed-outline' },
+    { category: 'About', label: 'About', link: '', icon: 'information-circle-outline' },
     { category: 'Notifications', label: 'Notifications', link: '', icon: 'mail-unread-outline' },
     { category: 'Analytics', label: 'Analytics', link: '', icon: 'pie-chart-outline' },
-    { category: 'Support & About', label: 'Help & Support', link: '', icon: 'help-circle-outline' },
+    { category: 'Terms & Conditions', label: 'Terms & Conditions', link: '', icon: 'help-circle-outline' },
     { category: 'Actions', label: 'Log out', link: '', icon: 'log-out-outline' }
   ];
 
@@ -97,6 +97,10 @@ export class SettingsComponent  implements OnInit {
       }
     } else if ( label === 'Analytics'){
       this.router.navigateByUrl('/analytics');
+    } else if(label === 'About'){
+      this.router.navigateByUrl('/about');
+    } else if(label === 'Terms & Conditions'){
+      this.router.navigateByUrl('/terms-and-conditions');
     }
     else if(label === 'Edit Profile'){
       if(this.role === 'Admin'){

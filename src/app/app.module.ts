@@ -20,13 +20,16 @@ import { ChartdiagramComponent } from './re-useable-components/chart/chartdiagra
 import { NotificationsComponent } from './pages/notifications/notifications/notifications.component';
 import { ViewNotificationComponent } from './pages/view-notification/view-notification/view-notification.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AboutComponent } from './pages/about/about/about.component';
+import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-and-conditions/terms-and-conditions.component';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, SignUpComponent, 
     NgxSpinnerModule, SignInComponent, SideMenuComponent, ProfileComponent, ViewImageModalComponent, 
     SettingsComponent, EditProfileComponent, ExpensesComponent,  AddExpenseModalComponent, ExpenseDetailsComponent, 
-    AnalyticsComponent, ChartdiagramComponent, NotificationsComponent, ViewNotificationComponent,HttpClientModule],
+    AnalyticsComponent, ChartdiagramComponent, NotificationsComponent, ViewNotificationComponent,HttpClientModule,
+    AboutComponent,TermsAndConditionsComponent],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

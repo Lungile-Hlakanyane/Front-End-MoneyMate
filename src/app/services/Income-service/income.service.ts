@@ -15,4 +15,8 @@ export class IncomeService {
   createIncome(income: IncomeDTO): Observable<IncomeDTO> {
     return this.http.post<IncomeDTO>(this.baseUrl, income);
   }
+
+  getIncomeByUserId(userId: number): Observable<IncomeDTO> {
+    return this.http.get<IncomeDTO>(`${this.baseUrl}/user/${userId}`);
+  }
 }

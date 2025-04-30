@@ -11,6 +11,8 @@ import { ExpenseDetailsComponent } from './pages/expense-details/expense-details
 import { AnalyticsComponent } from './pages/analytics/analytics/analytics.component';
 import { NotificationsComponent } from './pages/notifications/notifications/notifications.component';
 import { ViewNotificationComponent } from './pages/view-notification/view-notification/view-notification.component';
+import { AboutComponent } from './pages/about/about/about.component';
+import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-and-conditions/terms-and-conditions.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -21,6 +23,8 @@ const routes: Routes = [
   { path: 'expense-details', component:ExpenseDetailsComponent},
   { path: 'analytics', component:AnalyticsComponent},
   { path: 'view-notification', component:ViewNotificationComponent},
+  { path: 'about', component: AboutComponent},
+  { path: 'terms-and-conditions', component:TermsAndConditionsComponent},
   {
     path:'',
     component: TabsComponent,
